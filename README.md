@@ -34,13 +34,13 @@ Type:
 
 For every propositional formula F, the tests:  
                     
-    |?- tautology F.                               
-    |?- satisfiable F.    
+    | ?- tautology F.                               
+    | ?- satisfiable F.    
                                              
 always terminate with an answer yes/no.                            
 You can also print a Conjunctive Normal Form:   
                    
-    |?- cnf F.             
+    | ?- cnf F.             
                                             
 The formula F can be built using propositional connectives:   
      
@@ -59,12 +59,22 @@ The formula F can be built using propositional connectives:
      
 truth constants: 
 
-     true 
-     false   
+    true 
+    false   
                         
 and propositional symbols. 
-As propositional symbol use identifiers starting with a lower-case letter.        
+As propositional symbol use identifiers starting with a lower-case letter. 
 
+From strongest to weakest:
+
+    not           
+    and, or, nand, nor (left associative)
+    imp, nrimp         (right associative)
+    rimp, nimp, minus  (left associative)
+    equ, xor.          (left associative)
+
+Every connective has the same precedence and associativity type as its dual.
+       
 ---
 
 ### Sample interactions
