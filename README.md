@@ -1,8 +1,8 @@
 # Prolog-Propositional-Resolution
  
-Propositional theorem prover -
-resolution with pure literal and subsumption elimination 
-implemented in ISO Prolog.
+Propositional theorem prover -  
+resolution with pure literal and subsumption elimination  
+implemented in ISO Prolog.  
 Educational materials.
 
 Version of 2023/03/11
@@ -34,36 +34,36 @@ Type:
 
 For every propositional formula F, the tests:  
                     
-                    |?- tautology F.                               
-                    |?- satisfiable F.    
+    |?- tautology F.                               
+    |?- satisfiable F.    
                                              
 always terminate with an answer yes/no.                            
 You can also print a Conjunctive Normal Form:   
                    
-                    |?- cnf F.             
+    |?- cnf F.             
                                             
 The formula F can be built using propositional connectives:   
      
-     not       (negation)                           
-     and       (conjunction)                        
-     or        (inclusive discjunction)             
-     imp       (implication)                        
-     rimp      (reversed implication)               
-     equ       (equivalence, biconditional)         
-     xor       (exclusive disjunction, not(p equ q))
-     nand      (not(p and q))  - Sheffer's stroke  
-     nor       (not(p or q))                        
-     nimp      (not(p imp q))                       
-     nrimp     (not(p rimp q))                      
-     minus     (p and not q)  - the same as nimp    
+    not       (negation)                           
+    and       (conjunction)                        
+    or        (inclusive discjunction)             
+    imp       (implication)                        
+    rimp      (reversed implication)               
+    equ       (equivalence, biconditional)         
+    xor       (exclusive disjunction, not(p equ q))
+    nand      (not(p and q))  - Sheffer's stroke  
+    nor       (not(p or q))                        
+    nimp      (not(p imp q))                       
+    nrimp     (not(p rimp q))                      
+    minus     (p and not q)  - the same as nimp    
      
 truth constants: 
 
      true 
      false   
                         
-and propositional symbols. As propositional symbol use            
-identifiers starting with a lower-case letter.        
+and propositional symbols. 
+As propositional symbol use identifiers starting with a lower-case letter.        
 
 ---
 
