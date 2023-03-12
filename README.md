@@ -1,7 +1,7 @@
 # Prolog-Propositional-Resolution
  
 Propositional theorem prover -  
-resolution with pure literal and subsumption elimination  
+resolution with pure literal and subsumption elimination,  
 implemented in ISO Prolog.  
 Educational software.
 
