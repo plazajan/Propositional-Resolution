@@ -32,13 +32,18 @@ Type:
     
 ---
 
-For every propositional formula F, the tests:                      
+For every propositional formula F, the tests:  
+                    
                     |?- tautology F.                               
-                    |?- satisfiable F.                             
+                    |?- satisfiable F.    
+                                             
 always terminate with an answer yes/no.                            
-You can also print a Conjunctive Normal Form:                      
-                    |?- cnf F.                                     
-The formula F can be built using propositional connectives:        
+You can also print a Conjunctive Normal Form:   
+                   
+                    |?- cnf F.             
+                                            
+The formula F can be built using propositional connectives:   
+     
      not       (negation)                           
      and       (conjunction)                        
      or        (inclusive discjunction)             
@@ -51,7 +56,12 @@ The formula F can be built using propositional connectives:
      nimp      (not(p imp q))                       
      nrimp     (not(p rimp q))                      
      minus     (p and not q)  - the same as nimp    
-truth constants: true, false,                       
+     
+truth constants: 
+
+    true 
+    false   
+                        
 and propositional symbols. As propositional symbol use            
 identifiers starting with a lower-case letter.        
 
