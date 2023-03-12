@@ -59,8 +59,8 @@ The formula F can be built using propositional connectives:
      
 truth constants: 
 
-    true 
-    false   
+     true 
+     false   
                         
 and propositional symbols. As propositional symbol use            
 identifiers starting with a lower-case letter.        
@@ -81,23 +81,23 @@ identifiers starting with a lower-case letter.
     | ?- tautology  false imp p.
     yes
     
-    | ?- tautology  (p imp q) imp (q imp p). % False
+    | ?- tautology  (p imp q) imp (q imp p). 
     no
 
-    | ?- tautology  (p imp q) and p and not q. % False
+    | ?- tautology  (p imp q) and p and not q. 
     no
 
-    | ?- tautology  (p equ q) or (p equ r) or (q equ r). % True
+    | ?- tautology  (p equ q) or (p equ r) or (q equ r). 
     yes
 
 
-    | ?- satisfiable  (p imp q) imp (q imp p). % True
+    | ?- satisfiable  (p imp q) imp (q imp p). 
     yes
 
-    | ?- satisfiable  (p imp q) and p and not q. % False
+    | ?- satisfiable  (p imp q) and p and not q. 
     no
 
-    | ?- satisfiable  (p equ q) or (p equ r) or (q equ r). % True
+    | ?- satisfiable  (p equ q) or (p equ r) or (q equ r). 
     yes
 
 
