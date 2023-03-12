@@ -330,6 +330,12 @@ component(not false, true).
 component(true, true).
 component(false, false).
 
+% makeConjunction(++ListOfFormulas, -Conjunction) function.
+makeConjunction([], true) :- !.
+makeConjunction([Formula], Formula) :- !.
+makeConjunction([Formula | Rest], Formula and Temp) :- 
+    makeConjunction(Rest, Temp).
+
 /*
 ******************************************************************************
 CLAUSE MANIPULATION  
@@ -576,6 +582,11 @@ satisfiable(Formula) :-
     \+ tautology(not Formula).
     
 % consequence(++ListOfFormulas, ++Formula) test.
+% Tests if Formula is logical consequence of ListOfFormulas.
+% Can be used as a binary infix operator.
+consequence(ListOfFormulas, Formula) :-
+   makeConjunction(ListOfFormulas, Conjunction),
+   tautology(Conjunction imp Formula).
 
 /*
 ****************************************************************************
@@ -589,9 +600,10 @@ write('                 PROPOSITIONAL THEOREM PROVER                      '),nl,
 write('                         Jan A. Plaza                              '),nl,
 write('This theorem prover is based on J.A. Robinson''s resolution method' ),nl,
 write('augmented with pure literal elimination and subsumption elimination'),nl,
-write('For every propositional formula F, the tests:                      '),nl,
+write('For any propositional formula F and list of formulas L, the tests: '),nl,
 write('                    |?- tautology F.                               '),nl,
 write('                    |?- satisfiable F.                             '),nl,
+write('                    |?- L consequence F.                           '),nl,
 write('always terminate with an answer yes/no.                            '),nl,
 write('You can also print a Conjunctive Normal Form:                      '),nl,
 write('                    |?- cnf F.                                     '),nl,
@@ -611,7 +623,7 @@ write('     minus     (p and not q)  - the same as nimp    '),nl,
 write('truth constants: true, false,                       '),nl,
 write('and propositional symbols. As propositional symbol use            '),nl,
 write('identifiers starting with a lower-case letter.                    '),nl,
-    write('To run this demo once again type: demo.'),
+    % write('To run this demo once again type: demo.'),
     nl.
 
 demo2 :-
@@ -641,7 +653,7 @@ demo2 :-
     write(' % True'), nl,
     (tautology( (p equ q) or (p equ r) or (q equ r) ) 
 	    -> write(yes) ; write(no) ), nl,
-    write('To run this demo once again type: demo2'),
+    % write('To run this demo once again type: demo2'),
     nl.
     
 demo3 :-
@@ -657,10 +669,19 @@ demo3 :-
     write(' % True'), nl,
     (satisfiable( (p equ q) or (p equ r) or (q equ r) ) 
 	    -> write(yes) ; write(no) ), nl,
-    write('To run this demo once again type: demo3'),
+    % write('To run this demo once again type: demo3'),
     nl.
-    
+
 demo4 :-
+    nl, nl,
+    write('| ?- [p imp q, q imp r, r imp p]  consequence  q imp p.'), nl,
+    (consequence( [p imp q, q imp r, r imp p],  q imp p ) 
+	    -> write(yes) ; write(no) ), nl,
+	write('| ?- [p imp q, q imp r]  consequence  r imp p.'), nl,
+    (consequence( [p imp q, q imp r],  r imp p ) 
+	    -> write(yes) ; write(no) ), nl.
+	    
+demo5 :-
     nl, nl,
     write('| ?- cnf  p and q and r.'), nl,
     cnf( p and q and r ), nl,
@@ -674,13 +695,14 @@ demo4 :-
     cnf( (p imp q) or (q imp p) ), nl,
     write('| ?- cnf  not ((p imp q) or (q imp p)).'), nl,
     cnf( not((p imp q) or (q imp p)) ), nl,
-    write('To run this demo once again type: demo4'),
-    nl.
-
+    % write('To run this demo once again type: demo4'),
+    nl, nl.
+    
 :- initialization(demo).
 :- initialization(demo2).
 :- initialization(demo3).
 :- initialization(demo4).
+:- initialization(demo5).
 
 /*
 ****************************************************************************
