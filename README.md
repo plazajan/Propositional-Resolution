@@ -17,7 +17,7 @@ Use under Creative Commons Attribution Share-Alike International License 4.0
 
 ### Instructions
 
-Start prolog.
+Start Prolog.
 Type:
 
     | ?- consult(resolution0.pro)
