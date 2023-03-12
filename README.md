@@ -22,10 +22,10 @@ You should have received a copy of the GNU General Public License along with Pro
 
 ### Instructions
 
-Start Prolog in the directory containing file `resolution0.pro`.
+Start Prolog in the directory containing file `resolution0.pl`.
 Type:
 
-    | ?- consult(resolution0.pro)
+    | ?- consult(resolution0.pl)
     
     | ?- demo.
     
