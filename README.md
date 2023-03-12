@@ -118,6 +118,7 @@ Every connective has the same precedence and associativity type as its dual.
     
     | ?- [p imp q, q imp r, r imp p]  consequence  q imp p.
     yes
+    
     | ?- [p imp q, q imp r]  consequence  r imp p.
     no
 
