@@ -3,6 +3,7 @@ c :- consult(resolution0).
 % Propositional theorem prover -
 % resolution with pure literal and subsumption elimination 
 % implemented in ISO Prolog.
+% Educational materials.
 
 % Version of 2023/03/11
 
