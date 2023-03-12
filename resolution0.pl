@@ -1,7 +1,8 @@
 c :- consult(resolution0).
 
-% Propositional resolution with pure literal and subsumption elimination 
-% implemented using standard featues of Prolog (ISO Prolog).
+% Propositional theorem prover -
+% resolution with pure literal and subsumption elimination 
+% implemented in ISO Prolog.
 
 % Version of 2023/03/11
 
