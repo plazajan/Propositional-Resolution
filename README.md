@@ -22,7 +22,7 @@ You should have received a copy of the GNU General Public License along with Pro
 
 ### Instructions
 
-Start Prolog.
+Start Prolog in the directory containing `resolution0.pro`.
 Type:
 
     | ?- consult(resolution0.pro)
