@@ -11,7 +11,9 @@ c :- consult(resolution0).
                     
 % Copyright 1987-2023, Jan A. Plaza
 
-% Use under Creative Commons Attribution Share-Alike International License 4.0
+% Use under 
+% Creative Commons Attribution Share-Alike International License 4.0
+% and 
 
 
 /*
@@ -230,10 +232,13 @@ As propositional letters you can use Prolog atoms.
 % p nand q  is equivalent to  not (p and q),  sometimes written as uparrow.
 
 % The following unary operators can prefix a formula.
-% tautology ++Formula  is a test.
-% satisfiable ++Formula  is a test.
-% cnf ++Formula  is a success (side-effect: prints CNF).
+% tautology ++Formula     is a test.
+% satisfiable ++Formula   is a test.
+% cnf ++Formula           is a success (side-effect: prints CNF).
 :-op(650, fx, [tautology, satisfiable, cnf]).
+
+% ++ListOfFormulas consequence ++Formula          is a test.
+:-op(660, xfx, consequence).
 	
 /*
 ****************************************************************************
@@ -561,6 +566,8 @@ tautology(Formula) :-
 % Can be used as a unary prefix operator.
 satisfiable(Formula) :- 
     \+ tautology(not Formula).
+    
+% consequence(++ListOfFormulas, ++Formula) test.
 
 /*
 ****************************************************************************
