@@ -471,6 +471,12 @@ replaceNots([Literal | Rest], [Literal | NewRest]) :-
     replaceNots(Rest, NewRest).
 replaceNots([],[]).
 
+/* 
+TO DO: improve prining of negations of numbers. Currently:
+| ?- cnf not 1.
+[- (1)].
+*/
+
 /*
 ****************************************************************************
 PURE LITERAL ELIMINATION
