@@ -440,14 +440,14 @@ PRINTING CNF'S
 ******************************************************************************
 */
 
-% cnf(++Formula) success. (side-effect: prints resulting CNF.)
+% cnf(++Formula) success. Side-effect: prints resulting CNF.
 % Can be used as a unary prefix operator. 
 % | ?- cnf p and (q or not r).      prints    [q,-r] and [p].
 cnf(Formula) :-
     cnf([[Formula]], CNF),
     printCNF(CNF).
 
-% printCNF(++ListOfClauses) success. (side-effect: prints.)
+% printCNF(++ListOfClauses) success. Side-effect: prints.
 printCNF([]) :- 
     write(true), write('.'), nl.
 printCNF([LastClause]) :- !,
@@ -456,26 +456,30 @@ printCNF([Clause|Rest]) :-
     printClause(Clause), write(' and '),
     printCNF(Rest).  
 
-% printClause(++Clause) success. (side-effect: prints.)
+% printClause(++Clause) success. Side-effect: prints.
 printClause([]) :-
     write(false), !.
 printClause(Clause) :-
-    replaceNots(Clause, AbbrevClause),
-    write(AbbrevClause).
+    write('['),
+    printLiterals(Clause),
+    write(']').
 
-% replaceNots(++Clause, -AbbrevClause) function.
-% AbbrevClause is like Clause but with -'s replacing not's.
-replaceNots([not Literal | Rest], [-Literal | NewRest]) :- !,
-    replaceNots(Rest, NewRest).
-replaceNots([Literal | Rest], [Literal | NewRest]) :-
-    replaceNots(Rest, NewRest).
-replaceNots([],[]).
-
-/* 
-TO DO: improve prining of negations of numbers. Currently:
-| ?- cnf not 1.
-[- (1)].
-*/
+% printLiterals(++Clause) success. Side-effect: prints.
+% Prerequiste: Clause is a non-empty list of literals
+printLiterals([not X]) :- !,
+    write('-'),
+    write(X).
+printLiterals([X]) :- !,
+    write(X).
+printLiterals([not X|Rest]) :- !,
+    write('-'),
+    write(X),
+    write(','),
+    printLiterals(Rest).
+printLiterals([X|Rest]) :-
+    write(X),
+    write(','),
+    printLiterals(Rest).
 
 /*
 ****************************************************************************
