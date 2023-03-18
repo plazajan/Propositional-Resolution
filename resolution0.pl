@@ -211,7 +211,8 @@ OPERATORS
 
 The following operators can be used to build propositional formulas.
 Constants 'true', 'false' are also allowed. 
-As propositional letters you can use Prolog atoms.
+
+As propositional letters you can use Prolog atoms or numbers.
 */
 
 :- op(130,  fy, not).          
