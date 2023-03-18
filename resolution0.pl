@@ -113,7 +113,7 @@ s_subset([], _Set).
 s_union([X1|Rest1], [X2|Rest2], [X1|NewRest]) :-
 	X1 @< X2, !,
 	s_union(Rest1, [X2|Rest2], NewRest).
-s_union([X1|Rest1], [X2|Rest2], [X1|NewRest]) :-
+s_union([X1|Rest1], [X2|Rest2], [X2|NewRest]) :-
 	X1 @> X2, !,
 	s_union([X1|Rest1], Rest2, NewRest).
 s_union([X|Rest1], [X| Rest2], Result) :- !,
